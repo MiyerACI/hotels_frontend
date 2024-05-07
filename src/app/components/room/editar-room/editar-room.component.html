@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="container text-center" style="margin: 30px;">
+    <h3>Editar cuarto</h3>
+  </div>
+</div>
+<form (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="description" class="form-label">Descripcion cuarto</label>
+    <input type="text" class="form-control" id="description" name="description" [(ngModel)]="room.description">
+  </div>
+  <div class="mb-3">
+    <label for="hotel" class="form-label">Hotel</label>
+    <input type="text" class="form-control" id="hotel" name="hotel" [(ngModel)]="room.hotel">
+  </div>
+  <div class="mb-3">
+    <label for="name" class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="room.name">
+  </div>
+  <div class="mb-3">
+    <label for="stars" class="form-label">Estrellas</label>
+    <input type="number" class="form-control" id="stars" name="stars" [(ngModel)]="room.stars">
+  </div>
+
+  <div class="mb-3">
+    <label for="id" class="form-label">Categoria</label>
+    <select id="id" name="id" class="form-select" [(ngModel)]="room.category.id">
+      <option *ngFor="let categoria of category" [value]="categoria.id" [selected]="categoria.id === room.category.id">
+        {{categoria.name}}</option>
+    </select>    
+  </div>
+
+  
+
+  <div class="text-center">
+    <button type="submit" class="btn btn-warning btn-sm me-3">Guardar edicion</button>
+    <a href="/rooms" class="btn btn-danger btn-sm">Regresar</a>
+  </div>
+</form>

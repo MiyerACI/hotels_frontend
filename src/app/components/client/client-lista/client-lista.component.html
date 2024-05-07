@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="container text-center" style="margin: 30px;">
+        <h3>Lista de productos</h3>
+    </div> 
+    <table class="table table-striped table-hover align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Email</th>    
+            <th scope="col">Nombre</th>    
+            <th scope="col">Password</th>    
+            <th scope="col" class="text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of client">
+            <th scope="row">{{cliente.idClient}}</th>
+            <td>{{cliente.age}}</td>
+            <td>{{cliente.email}}</td>            
+            <td>{{cliente.name}}</td>            
+            <td>{{cliente.password}}</td>            
+            <td class="text-center">
+              <div>
+                <button (click)="editarCliente(cliente.idClient)" class="btn btn-warning btn-sm me-3">Editar</button>
+                <button (click)="eliminarCliente(cliente.idClient)" class="btn btn-danger btn-sm">Eliminar</button>
+              </div>              
+            </td>
+          </tr>          
+        </tbody>
+      </table>
+</div>
+

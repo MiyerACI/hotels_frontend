@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="container text-center" style="margin: 30px;">
+        <h3>Lista de reservaciones</h3>
+    </div> 
+    <table class="table table-striped table-hover align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Id</th>            
+            <th scope="col">Fecha devolucion</th>            
+            <th scope="col">Calificacion</th>    
+            <th scope="col">Fecha de inicio</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Cuarto</th>
+            <th scope="col" class="text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reservaciones of reservations">
+            <th scope="row">{{reservaciones.idReservation}}</th>
+            <td>{{reservaciones.devolutionDate}}</td>
+            <td>{{reservaciones.score}}</td>
+            <td>{{reservaciones.devolutionDate}}</td>            
+            <td>{{reservaciones.status}}</td>         
+            <td>{{reservaciones.client.name}}</td>         
+            <td>{{reservaciones.room.name}} / {{reservaciones.room.hotel}} </td>         
+            
+            <td class="text-center">
+              <div>
+                <button (click)="editarReservacion(reservaciones.idReservation)" class="btn btn-warning btn-sm me-3">Editar</button>
+                <button (click)="eliminarReservacion(reservaciones.idReservation)" class="btn btn-danger btn-sm">Eliminar</button>
+              </div>              
+            </td>
+          </tr>          
+        </tbody>
+      </table>
+</div>
+
+

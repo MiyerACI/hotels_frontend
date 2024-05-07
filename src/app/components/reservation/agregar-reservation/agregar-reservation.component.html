@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="container text-center" style="margin: 30px;">
+        <h3>Agregar reserva</h3>
+    </div>
+</div>
+<form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="devolution_date" class="form-label">Fecha devolucion</label>
+        <input type="date" class="form-control" id="devolution_date" name="devolution_date"
+            [(ngModel)]="reservation.devolutionDate">
+    </div>
+    <div class="mb-3">
+        <label for="score" class="form-label">Calificacion</label>
+        <input type="text" class="form-control" id="score" name="score" [(ngModel)]="reservation.score">
+    </div>
+    <div class="mb-3">
+        <label for="start_date" class="form-label">Fecha de inicio</label>
+        <input type="date" f class="form-control" id="start_date" name="start_date"
+            [(ngModel)]="reservation.startDate">
+    </div>
+    <div class="mb-3">
+        <label for="status" class="form-label">Estado</label>
+        <input type="text" class="form-control" id="status" name="status" [(ngModel)]="reservation.status">
+    </div>
+
+    <div class="mb-3">
+        <label for="client" class="form-label">Cliente</label>
+        <select id="client" name="client" class="form-select" [(ngModel)]="reservation.client.idClient">
+            <option *ngFor="let cliente of client" [value]="cliente.idClient">{{cliente.name}}</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="room" class="form-label">Cuarto</label>
+        <select id="room" name="room" class="form-select" [(ngModel)]="reservation.room.id">
+            <option *ngFor="let cuarto of room" [value]="cuarto.id">{{cuarto.name}}</option>
+        </select>
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-warning btn-sm me-3">Guardar</button>
+        <a href="/reservations" class="btn btn-danger btn-sm">Regresar</a>
+    </div>
+</form>

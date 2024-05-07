@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="container text-center" style="margin: 30px;">
+        <h3>Agregar Message</h3>
+    </div>
+</div>
+<form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="messageText" class="form-label">Mensaje de texto</label>
+        <input type="text" class="form-control" id="messageText" name="messageText"
+            [(ngModel)]="message.messageText">
+    </div>   
+    <div class="mb-3">
+        <label for="client" class="form-label">Cliente</label>
+        <select id="client" name="client" class="form-select" [(ngModel)]="message.client.idClient">
+            <option *ngFor="let cliente of client" [value]="cliente.idClient">{{cliente.name}}</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="tool" class="form-label">Cuarto</label>
+        <select id="tool" name="tool" class="form-select" [(ngModel)]="message.tool.id">
+            <option *ngFor="let cuarto of room" [value]="cuarto.id">{{cuarto.name}}</option>
+        </select>
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-warning btn-sm me-3">Guardar</button>
+        <a href="/messages" class="btn btn-danger btn-sm">Regresar</a>
+    </div>
+</form>

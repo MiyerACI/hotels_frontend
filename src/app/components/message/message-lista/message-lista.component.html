@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="container text-center" style="margin: 30px;">
+        <h3>Lista de Messages</h3>
+    </div> 
+    <table class="table table-striped table-hover align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Id</th>            
+            <th scope="col">Mensaje</th>                        
+            <th scope="col">Cliente</th>
+            <th scope="col">Cuarto</th>
+            <th scope="col" class="text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let mensajes of messages">
+            <th scope="row">{{mensajes.idMessage}}</th>
+            <td>{{mensajes.messageText}}</td>                  
+            <td>{{mensajes.client.name}}</td>         
+            <td>{{mensajes.tool.name}}</td>         
+            
+            <td class="text-center">
+              <div>
+                <button (click)="editarMessages(mensajes.idMessage)" class="btn btn-warning btn-sm me-3">Editar</button>
+                <button (click)="eliminarMessage(mensajes.idMessage)" class="btn btn-danger btn-sm">Eliminar</button>
+              </div>              
+            </td>
+          </tr>          
+        </tbody>
+      </table>
+</div>
+
+
